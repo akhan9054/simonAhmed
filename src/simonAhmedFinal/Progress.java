@@ -44,13 +44,37 @@ public class Progress extends Component implements ProgressInterfaceAhmed {
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		FontMetrics fm = g.getFontMetrics();
 		if(gameOver){
-			g.setColor(new Color(255,55,90));
-			g.fillRect(0, 0, WIDTH, HEIGHT);
-			g.setColor(Color.white);
-			String go = "GAME OVER!";
-			g.drawString(go, (WIDTH - fm.stringWidth(go))/2, 20);
-			g.drawString(sequence, (WIDTH - fm.stringWidth(sequence))/2, 40);
-
+			Thread flash = new Thread(new Runnable() {
+				public void run() {
+					while(true){
+						g.setColor(Color.blue);
+						g.fillRect(0, 0, WIDTH, HEIGHT);
+						g.setColor(Color.black);
+						g.drawRect(0, 0, WIDTH-1, HEIGHT-1);
+						String go = "GAME OVER!";
+						g.drawString(go, (WIDTH - fm.stringWidth(go))/2, 20);
+						g.drawString(sequence, (WIDTH - fm.stringWidth(sequence))/2, 40);
+						try {
+							Thread.sleep(600);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+						
+						g.setColor(Color.red);
+						g.fillRect(0, 0, WIDTH, HEIGHT);
+						g.setColor(Color.black);
+						g.drawRect(0, 0, WIDTH-1, HEIGHT-1);
+						g.drawString(go, (WIDTH - fm.stringWidth(go))/2, 20);
+						g.drawString(sequence, (WIDTH - fm.stringWidth(sequence))/2, 40);
+						try {
+							Thread.sleep(600);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+					}
+				}
+			});
+			flash.start();
 		}else{
 			g.setColor(Color.orange);
 			g.fillRect(0, 0, WIDTH, HEIGHT);
