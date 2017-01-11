@@ -37,8 +37,6 @@ public class Progress extends Component implements ProgressInterfaceAhmed {
 		update();
 	}
 
-
-
 	@Override
 	public void update(Graphics2D g) {
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);

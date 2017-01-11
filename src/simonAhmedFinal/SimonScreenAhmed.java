@@ -148,12 +148,24 @@ public class SimonScreenAhmed extends ClickableScreen implements Runnable{
 						}else{
 							progress.gameOver();
 							acceptingInput = false;
+							flashAll();
 							return;
 						}
 					}
 					if(sequence.size()==sequenceIndex){
 						Thread nextRound = new Thread(SimonScreenAhmed.this);
 						nextRound.start();
+					}
+				}
+
+				private void flashAll() {
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					for(int i=0; i<button.length; i++){
+						button[i].highlight();
 					}
 				}
 

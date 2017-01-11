@@ -23,15 +23,12 @@ public class Button extends Component implements ButtonInterfaceAhmed {
 
 	public boolean isHovered(int x, int y) {
 		double distance = Math.sqrt(Math.pow(x-(getX()+WIDTH/2), 2)+Math.pow(y-(getY()+HEIGHT/2), 2));
-		//checks if distance between mouse and center of button is less then the radius of the button
 		return distance < WIDTH/2;
 	}
 
 	public void act() {
 		action.act();
 	}
-
-
 
 	public void setColor(Color color) {
 		this.c = color;
