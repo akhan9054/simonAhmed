@@ -1,4 +1,4 @@
-package simonJaviyFinal;
+package simonAhmedFinal;
 
 import java.awt.Color;
 import java.awt.FontMetrics;

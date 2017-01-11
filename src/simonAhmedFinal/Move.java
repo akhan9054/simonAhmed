@@ -1,4 +1,4 @@
-package simonJaviyFinal;
+package simonAhmedFinal;
 
 public class Move implements MoveInterfaceAhmed {
 

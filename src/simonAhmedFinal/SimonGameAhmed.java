@@ -1,4 +1,4 @@
-package simonJaviyFinal;
+package simonAhmedFinal;
 
 import guiPractice.GUIApplication;
 
